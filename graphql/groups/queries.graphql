@@ -1,0 +1,20 @@
+query GetGroup($id: String!) {
+    group(id: $id) {
+        status
+        item {
+            ...FullGroup
+        }
+    }
+}
+
+query GetGroups($search: String, $flat: Boolean, $page: Int, $pageSize: Int) {
+    groups(search: $search, flat: $flat, page: $page, pageSize: $pageSize) {
+        status
+        total
+        page {
+            items {
+                ...FullGroup
+            }
+        }
+    }
+}

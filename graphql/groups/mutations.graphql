@@ -1,0 +1,32 @@
+mutation CreateGroup(
+    $name: String!
+    $parentId: String) {
+    createGroup(
+        name: $name
+        parentId: $parentId
+    ) {
+        status
+        item {
+            ...FullGroup
+        }
+    }
+}
+
+mutation EditGroup($id: ID!
+    $name: String!) {
+    editGroup(
+        id: $id
+        name: $name
+    ) {
+        status
+        item {
+            ...FullGroup
+        }
+    }
+}
+
+mutation DeleteGroup($id: String!) {
+    deleteGroup(id: $id) {
+        status
+    }
+}

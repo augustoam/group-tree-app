@@ -1,0 +1,30 @@
+fragment FullGroup on Group {
+    id
+    name
+    path
+    children {
+        id
+        name
+        path
+        countChildren
+        createdAt
+    }
+    parents(first:1) {
+        id
+        name
+        createdAt
+    }
+    countChildren
+    createdAt
+    updatedAt
+}
+
+fragment GroupsResponse on GroupPaginatedResponse {
+    status
+    total
+    page {
+        items {
+            ...FullGroup
+        }
+    }
+}

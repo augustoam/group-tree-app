@@ -1,0 +1,23 @@
+overwrite: true
+schema: "./src/schema.json"
+documents:
+  - './graphql/**/*.graphql'
+generates:
+  ./src/__generated__/types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      skipTypename: false
+      withHooks: true
+      withHOC: false
+      withComponent: false
+  ./src/__generated__/fragments.ts:
+    plugins:
+      - 'fragment-matcher'
+    config:
+      skipTypename: false
+      withHooks: true
+      withHOC: false
+      withComponent: false
